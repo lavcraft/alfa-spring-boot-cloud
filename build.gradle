@@ -1,0 +1,29 @@
+plugins {
+    id 'org.springframework.boot' version '2.1.4.RELEASE' apply false
+    id 'java'
+}
+
+group = 'com.example'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '1.8'
+
+
+subprojects {
+    repositories {
+        mavenCentral()
+    }
+
+    dependencies {
+        apply plugin: 'java'
+
+        implementation enforcedPlatform('org.springframework.boot:spring-boot-dependencies:2.1.4.RELEASE'),
+                'org.springframework.boot:spring-boot-starter-webflux',
+                'org.springframework.boot:spring-boot-starter-aop'
+
+        annotationProcessor enforcedPlatform('org.springframework.boot:spring-boot-dependencies:2.1.4.RELEASE'),
+                'org.springframework.boot:spring-boot-configuration-processor'
+
+        testImplementation 'org.springframework.boot:spring-boot-starter-test'
+        testImplementation 'io.projectreactor:reactor-test'
+    }
+}

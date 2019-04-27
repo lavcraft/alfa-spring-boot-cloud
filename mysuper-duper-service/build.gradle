@@ -1,0 +1,12 @@
+apply plugin: 'org.springframework.boot'
+
+dependencies {
+    implementation project(':starter') // <-- load jar.
+    /**
+     * jar
+     *  -- /ru
+     *       /alfa/
+     *            /starter
+     *                   /DeprecatedAspect.class
+     */
+}
